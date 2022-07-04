@@ -14,12 +14,11 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString('ba
 function getCss(theme: string) {
     let background = 'white';
     let foreground = 'black';
-    let radial = 'lightgray';
 
     if (theme === 'dark') {
         background = 'black';
         foreground = 'white';
-        radial = 'dimgray';
+
     }
     return `
     @font-face {
@@ -45,7 +44,6 @@ function getCss(theme: string) {
 
     body {
         background: ${background};
-        background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
         background-size: 100px 100px;
         height: 100vh;
     }
@@ -115,11 +113,19 @@ function getCss(theme: string) {
         margin-top:-35px;
     }
 
-    .image {
-        position:fixed;
-        top:500px;
+    .image-cont {
+       display:flex;
+       justify-content:center;
+       align-items:center;
+       height:calc(100vh + 250px);
+       
     }
     
+    .image {
+        width:80%;
+        height:75vh;
+    }
+
     .sub-title {
         padding: 0px;
         font-family: 'Inter', sans-serif;
@@ -165,8 +171,12 @@ export function getHtml(parsedReq: ParsedRequest) {
                     </div>
                 </div>
             </div>
-            <div class="image">
-            ${getImage(image, widths[0], heights[0])}
+            <div class="image-cont">
+                <img
+                    class="image"
+                    alt="Generated Image"
+                    src="${sanitizeHtml(image)}"
+                />
             </div>
         </div>
     </body>
