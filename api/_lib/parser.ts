@@ -37,7 +37,7 @@ export function parseRequest(req: IncomingMessage) {
         theme: theme === 'dark' ? 'dark' : 'light',
         md: md === '1' || md === 'true',
         subtitle: subtitle || 'subtitle',
-        image: image ? atob(image) : "",
+        image: image ||  "",
         images: getArray(images),
         widths: getArray(widths),
         heights: getArray(heights),
