@@ -3,7 +3,7 @@ import { parse } from 'url';
 import { ParsedRequest, Theme } from './types';
 
 export function parseRequest(req: IncomingMessage) {
-    console.log('HTTP ' + req.url);
+    // console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
     const { images, widths, heights, theme, md, subtitle, image } = (query || {});
 

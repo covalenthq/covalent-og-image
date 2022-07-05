@@ -15,10 +15,13 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
             res.end(html);
             return;
         }
+        parsedReq.image = "";
         const { fileType } = parsedReq;
         const file = await getScreenshot(html, fileType, isDev);
         res.statusCode = 200;
         res.setHeader('Content-Type', `image/${fileType}`);
+        res.setHeader( "Content-Disposition", "inline;filename=" + parsedReq.text );
+        console.log(fileType)
         res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
         res.end(file);
     } catch (e) {
