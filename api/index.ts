@@ -6,6 +6,8 @@ const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === '1';
 
 export default async function handler(req: any, res: ServerResponse) {
+    res.setHeader('Access-Control-Allow-Credentials', 'true')
+    res.setHeader('Access-Control-Allow-Origin', '*')
     if (req.method === 'GET'){
         try {
             const parsedReq = parseRequest(req);
@@ -30,14 +32,15 @@ export default async function handler(req: any, res: ServerResponse) {
             console.error(e);
         }
     } else{
+        const request = JSON.parse(req.body)
         try {
-            const html = getHtml(req.body);
+            const html = getHtml(request);
             if (isHtmlDebug) {
                 res.setHeader('Content-Type', 'text/html');
                 res.end(html);
                 return;
             }
-            const { fileType } = req.body;
+            const { fileType } = request;
             const file = await getScreenshot(html, fileType, isDev);
             res.statusCode = 200;
             res.setHeader('Content-Type', `image/${fileType}`);
