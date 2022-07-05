@@ -2,6 +2,7 @@ import { IncomingMessage } from 'http';
 import { parse } from 'url';
 import { ParsedRequest, Theme } from './types';
 
+
 export function parseRequest(req: IncomingMessage) {
     // console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
@@ -18,7 +19,7 @@ export function parseRequest(req: IncomingMessage) {
     }
     
     const arr = (pathname || '/').slice(1).split('.');
-    console.log(pathname)
+
     let extension = '';
     let text = '';
     if (arr.length === 0) {
@@ -36,7 +37,7 @@ export function parseRequest(req: IncomingMessage) {
         theme: theme === 'dark' ? 'dark' : 'light',
         md: md === '1' || md === 'true',
         subtitle: subtitle || 'subtitle',
-        image: image || '',
+        image: image ? atob(image) : "",
         images: getArray(images),
         widths: getArray(widths),
         heights: getArray(heights),
