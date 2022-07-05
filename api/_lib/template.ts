@@ -62,13 +62,11 @@ function getCss(theme: string) {
     .header { 
         display:flex;
         align-items:center;
-        position:fixed;
-        left: 0;
-        top:0;
     }
 
     .logo {
-        margin: 50px
+        width:200px;
+        margin:15px;
     }
 
     .plus {
@@ -116,16 +114,18 @@ function getCss(theme: string) {
     .image-cont {
        display:flex;
        justify-content:center;
-       align-items:center;
-       height:calc(100vh + 250px);
+       height:75%;
+       width:100%;
        
     }
     
     .image {
-        width:80%;
-        height:75vh;
+      object-fit: cover; 
     }
 
+    .main {
+        height:100vh;
+    }
     .sub-title {
         padding: 0px;
         font-family: 'Inter', sans-serif;
@@ -156,7 +156,7 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(theme)}
     </style>
     <body>
-        <div>
+        <div class="main">
             <div class="header">
                 ${getImage(covalentLogoMark, widths[0], heights[0])}
                 <div class="title-wrapper">
