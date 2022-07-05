@@ -18,6 +18,7 @@ export function parseRequest(req: IncomingMessage) {
     }
     
     const arr = (pathname || '/').slice(1).split('.');
+    console.log(pathname)
     let extension = '';
     let text = '';
     if (arr.length === 0) {
