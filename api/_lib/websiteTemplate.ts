@@ -18,7 +18,8 @@ function getCss() {
         display:flex;
         flex-direction:column;
         justify-content: flex-end;
-        font-family: sans-serif;
+        font-family: 'Titillium Web', sans-serif;
+        font-weight: 200;
     }
 
     code {
@@ -68,7 +69,7 @@ function getCss() {
         font-size:100px;
         color:white;
         word-wrap: break-word;
-        margin-bottom:50px;
+        margin-bottom:20px;
     }
 
     .subtitle {
@@ -76,7 +77,10 @@ function getCss() {
         top:100px;
         right:60px;
         color:white;
-        font-size:50px;
+        font-size:40px;
+        font-weight:bold;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
     }
 
 `
@@ -93,7 +97,9 @@ export function getHtml(parsedReq: ParsedRequest) {
     return `<!DOCTYPE html>
 <html>
     <head>
-        <link rel=“stylesheet” href=“https:covalenthq.com/static/cqtscan.css”>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;400;600&display=swap" rel="stylesheet">
     </head>
     <meta charset="utf-8">
     <title>Generated Image</title>
