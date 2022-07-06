@@ -58,6 +58,7 @@ function getCss() {
         height:50%;
         font-size:40px;
         color:white;
+        font-weight:400;
     }
 
     .socials > svg {
