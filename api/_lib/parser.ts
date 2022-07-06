@@ -33,10 +33,10 @@ export function parseRequest(req: IncomingMessage) {
 
     const parsedRequest: ParsedRequest = {
         fileType: extension === 'jpeg' ? extension : 'png',
-        text: decodeURIComponent(text),
+        text: text ? decodeURIComponent(text) : "",
         theme: theme === 'dark' ? 'dark' : 'light',
         md: md === '1' || md === 'true',
-        subtitle: subtitle || 'subtitle',
+        subtitle: subtitle || '',
         image: image ||  "",
         images: getArray(images),
         widths: getArray(widths),

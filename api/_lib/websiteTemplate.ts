@@ -84,6 +84,10 @@ function getCss() {
         text-transform: uppercase;
     }
 
+    .second-br { 
+        margin-top:-25px;
+    }
+
 `
 
 }
@@ -118,9 +122,7 @@ export function getHtml(parsedReq: ParsedRequest) {
             )}
         </div>
         <label class="header">
-         ${emojify(
-            sanitizeHtml(text)
-            )}
+         ${ text != "" ? emojify(sanitizeHtml(text)) : `One unified API <br/> <span class="second-br"> One billion possibilities </span>`}
         </label>
         <div class="footer">
             <div class="socials">
