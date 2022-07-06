@@ -19,7 +19,7 @@ function getCss() {
         flex-direction:column;
         justify-content: flex-end;
         font-family: 'Titillium Web', sans-serif;
-        font-weight: 200;
+        font-weight: 400;
     }
 
     code {
