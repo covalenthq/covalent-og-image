@@ -28,14 +28,14 @@ function timeout(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-export async function getReactScreenshot(id: string, isDev: boolean) {
+export async function getReactScreenshot(id: string, params:string, isDev: boolean) {
     const options = await getOptions(isDev);
     const browser = await core.launch(options);
     _page = await browser.newPage();
     await _page.setViewport({ width: 1920, height: 1080 });
 
 
-    const url = `https://covalent-embed.vercel.app/${id}?embed=1234`;
+    const url = `https://covalent-embed.vercel.app/${id}?embed=${params}`;
     
     await _page.goto(url, {
         waitUntil: "networkidle2",

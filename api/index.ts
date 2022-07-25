@@ -26,7 +26,7 @@ export default async function handler(req: any, res: ServerResponse) {
                 // res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
                 res.end(file);
             }else{
-                const file = await getReactScreenshot(parsedReq.id, isDev);
+                const file = await getReactScreenshot(parsedReq.id, parsedReq.params, isDev);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', `image/png`);
                 // res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
