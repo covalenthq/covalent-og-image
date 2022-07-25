@@ -37,7 +37,7 @@ export async function getReactScreenshot(id: string, isDev: boolean) {
         waitUntil: 'networkidle2'
     });
     
-    const file = await _page.screenshot({type: "png" });
+    const file = await _page.screenshot({type: "jpeg" });
     await _page.close();
     await browser.close();
     return file;

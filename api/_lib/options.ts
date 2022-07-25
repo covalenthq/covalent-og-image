@@ -21,9 +21,7 @@ export async function getOptions(isDev: boolean) {
         };
     } else {
         options = {
-            args: [        '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-infobars',],
+            args: chrome.args,
             executablePath: await chrome.executablePath,
             headless: chrome.headless,
         };
