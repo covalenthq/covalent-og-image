@@ -23,13 +23,13 @@ export default async function handler(req: any, res: ServerResponse) {
                 const file = await getScreenshot(html, fileType, isDev);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', `image/${fileType}`);
-                res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
+                // res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
                 res.end(file);
             }else{
                 const file = await getReactScreenshot(parsedReq.id, isDev);
                 res.statusCode = 200;
                 res.setHeader('Content-Type', `image/png`);
-                res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
+                // res.setHeader('Cache-Control', `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`);
                 res.end(file);
 
             }
