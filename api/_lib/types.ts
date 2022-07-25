@@ -11,4 +11,5 @@ export interface ParsedRequest {
     heights: string[];
     subtitle: string;
     image: string;
+    id: string;
 }

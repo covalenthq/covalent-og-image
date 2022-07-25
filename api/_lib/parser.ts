@@ -6,10 +6,14 @@ import { ParsedRequest, Theme } from './types';
 export function parseRequest(req: IncomingMessage) {
     // console.log('HTTP ' + req.url);
     const { pathname, query } = parse(req.url || '/', true);
-    const { images, widths, heights, theme, md, subtitle, image } = (query || {});
+    const { images, widths, heights, theme, md, subtitle, image, id } = (query || {});
 
     if (Array.isArray(subtitle)) {
         throw new Error('Expected a single subtitle');
+    }
+
+    if (Array.isArray(id)) {
+        throw new Error('Expected a single id');
     }
     if (Array.isArray(image)) {
         throw new Error('Expected a single subtitle');
@@ -41,6 +45,7 @@ export function parseRequest(req: IncomingMessage) {
         images: getArray(images),
         widths: getArray(widths),
         heights: getArray(heights),
+        id: id ? id : ""
     };
     parsedRequest.images = getDefaultImages(parsedRequest.images, parsedRequest.theme);
     return parsedRequest;
