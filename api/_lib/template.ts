@@ -142,7 +142,7 @@ function getCss(theme: string) {
 
 
 
-export function getHtml(parsedReq: ParsedRequest) {
+export function getApp(parsedReq: ParsedRequest) {
     const { text, theme, md,  widths, heights, subtitle, image } = parsedReq;
     const covalentLogoMark = 'https://www.covalenthq.com/static/images/branding/logo-mark/logo-mark-black.svg';
     

@@ -67,7 +67,7 @@ function getCss() {
 
     .header {
         width:100%;
-        font-size:100px;
+        font-size:130px;
         color:white;
         word-wrap: break-word;
         margin-bottom:20px;
