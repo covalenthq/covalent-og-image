@@ -23,9 +23,8 @@ export async function getScreenshot(html: string, type: FileType, isDev: boolean
 
 export async function getReactScreenshot(id: string, isDev: boolean) {
     const page = await getPage(isDev);
-    await page.setViewport({ width: 2048, height: 1170 });
-    
-    // const page = await browser.newPage();
+    await page.setViewport({ width: 1920, height: 1080 });
+
     const url = `https://covalent-embed.vercel.app/${id}?embed=1234`;
     
     await page.goto(url, {
@@ -33,6 +32,6 @@ export async function getReactScreenshot(id: string, isDev: boolean) {
     });
     
     const file = await page.screenshot({type: "png" });
-    page.close();
+    await page.close();
     return file;
 }
