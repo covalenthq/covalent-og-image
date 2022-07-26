@@ -12,5 +12,5 @@ export interface ParsedRequest {
     subtitle: string;
     image: string;
     id: string;
-    params: string;
+    embed: string;
 }
